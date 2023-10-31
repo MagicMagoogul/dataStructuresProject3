@@ -1,0 +1,19 @@
+﻿
+
+
+Varianbles:
+
+
+
+
+Classes:
+
+
+
+
+Things well need man:
+
+Random number of crates in truck,
+
+Warehouse needs to return the results of the simulation and then that needs to be processed into the EXCEL file.
+That process needs to be shown by a animation of some sort, possibly just a GUI or a 
