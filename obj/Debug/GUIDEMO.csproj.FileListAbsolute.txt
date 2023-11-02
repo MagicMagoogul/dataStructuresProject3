@@ -1,0 +1,11 @@
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\bin\Debug\GUIDEMO.exe.config
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\bin\Debug\GUIDEMO.exe
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\bin\Debug\GUIDEMO.pdb
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.csproj.AssemblyReference.cache
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.Form1.resources
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.Properties.Resources.resources
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.csproj.GenerateResource.cache
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.csproj.CoreCompileInputs.cache
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.exe
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.pdb
+C:\Users\rmowe\OneDrive\Desktop\School 2023\Data Structures\GUIDEMO\obj\Debug\GUIDEMO.Form2.resources
