@@ -32,6 +32,10 @@ namespace Project3
             Id = Guid.NewGuid().ToString(); // Generate a unique ID
         }
 
+        /// <summary>
+        /// Gets the Price value of the object
+        /// </summary>
+        /// <returns>the Price value of the Crate object as a double</returns>
         public double GetPrice()
         {
             return Price;
