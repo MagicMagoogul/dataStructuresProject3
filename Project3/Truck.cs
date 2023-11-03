@@ -23,6 +23,14 @@ namespace Project3
         public string Driver { get; set; }
         public string DeliveryCompany { get; set; }
         public Stack<Crate> Trailer { get; }
+        
+        //for random driver name generation
+        static Random rand = new Random();
+        private RandomName nameGen = new RandomName(rand);
+
+        //for random delivery company generation
+        private static String[] companyArray = {"XPO Logistics", "J.B. Hunt Transport", "Knight-Swift Transport", "YRC Worldwide", "Schneider", "Landstar Systems", "Old Dominion", "TFI International", "Hub Group", "Estes Express"};
+
 
         /// <summary>
         /// Constructor for the truck.
@@ -35,7 +43,29 @@ namespace Project3
             DeliveryCompany = deliveryCompany;
             Trailer = new Stack<Crate>();
         }
+        /// <summary>
+        /// Null constructor for the truck.
+        /// </summary>
+        public Truck()
+        {
+            //we equal opportunity up in this bitch- but this generates a random name for the driver, thanks to a class I got off of github
+            double r = rand.Next();
+            if (r % 2 == 0)
+            {
+                Driver = nameGen.Generate(Sex.Male);
+            }
+            else
+            {
+                Driver = nameGen.Generate(Sex.Female);
+            }
 
+            DeliveryCompany = companyArray[rand.Next(10)];
+            Trailer = new Stack<Crate>(rand.Next(1, 26));
+        }
 
+        public string ToString()
+        {
+            return $"{this.Driver}, {this.DeliveryCompany}, {this.Trailer.Count()} crates";
+        }
     }
 }

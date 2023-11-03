@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FMbx87jRCYZgFCOm58QFUhM+PSUKRkW/IVGaTGSAvytpR1kQMxevbBggMEafalwqNaEjeIu2jhG4kC2zGCPJJg==",
+  "dgSpecHash": "tvtTKYx99SR+BzcvuqPpVRT41hjKV3RorWuyO6PQ1KzJBeYLXp3krmzdFiJqNlvzbJfawtWloKQLW5vVHoQg0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rmowe\\OneDrive\\Desktop\\School 2023\\Data Structures\\Project3\\Project3\\Project3.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\joshp\\OneDrive\\Documents\\GitHub\\dataStructuresProject3\\Project3\\Project3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\joshp\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
