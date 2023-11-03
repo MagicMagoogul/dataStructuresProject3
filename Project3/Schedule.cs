@@ -21,5 +21,10 @@ namespace Project3
         {
             return this.truck;
         }
+
+        public int GetArrivalInterval()
+        {
+            return interval;
+        }
     }
 }

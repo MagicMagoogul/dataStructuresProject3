@@ -49,19 +49,51 @@ namespace Project3
 
             //Incoming truck list and arrival intervals
             Queue<Schedule> schedule = new Queue<Schedule>(incomingTruckArrivals());
-            //Console.WriteLine(schedule.Peek().GetTruck().ToString());
 
-            //Begin Simulation
+            //test code to ensure that schedule's arrival intervals are in order
+            //while (schedule.Count() > 0)
+            //{
+            //    Console.WriteLine(schedule.Dequeue().GetArrivalInterval().ToString());
+            //}
+
+
+
+            //BEGIN SIMULATION
             for (int i = 1; i <= 48; i++)
             {
+                //trucks bound for that interval arrive at gate
+                while (schedule.Peek().GetArrivalInterval() == i)
+                {
+                    gateLine.Enqueue(schedule.Dequeue().GetTruck());
+                }
 
+                //trucks at gate are sent to docks, in order of dock that has gone longest without receiving a truck
+                while (gateLine.Count > 0)
+                {
+                    if (nextDock < docks.Count())
+                    {
+                        docks[nextDock].JoinLine(gateLine.Dequeue());
+                        nextDock++;
+                    }
+                    else
+                    {
+                        docks[nextDock].JoinLine(gateLine.Dequeue());
+                        nextDock = 0;
+                    }
+                }
+
+                //each dock unloads 1 crate, swapping out trucks if truck is empty
+                foreach (Dock d in docks)
+                {
+                    d.UnloadCrate();
+                }
             }
         }
 
         /// <summary>
-        /// Creates random intervals over the simulation period at which an unmade Truck object will "arrive" at the gate.
+        /// Creates a list of random intervals within the simulation parameters that correspond to a Truck object.
         /// </summary>
-        /// <returns>Array of intervals corresponding to a truck's arrival interval</returns>
+        /// <returns>List of Schedule objects containing a truck object and the interval it will arrive at.</returns>
         public static List<Schedule> incomingTruckArrivals()
         {
             List<Schedule> arrivalIntervals = new List<Schedule>();

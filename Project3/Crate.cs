@@ -31,5 +31,10 @@ namespace Project3
             Price = randy.Next(50, 501);
             Id = Guid.NewGuid().ToString(); // Generate a unique ID
         }
+
+        public double GetPrice()
+        {
+            return Price;
+        }
     }
 }

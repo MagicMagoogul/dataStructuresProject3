@@ -40,6 +40,23 @@ namespace Project3
             Line.Enqueue(truck);
         }
 
+        public void UnloadCrate()
+        {
+            if (Line.Peek() == null)
+            {
+                TimeNotInUse++;
+                return;
+            }
+
+            TotalSales += Line.Peek().Trailer.Pop().GetPrice();
+            TotalCrates++;
+
+            if (Line.Peek().Trailer.Count ==0)
+            {
+                this.SendOff();
+            }
+        }
+
         /// <summary>
         /// Used in the simulation when the trucks leave the dock.
         /// </summary>
@@ -48,6 +65,7 @@ namespace Project3
         {
             if (Line.Count > 0)
             {
+                TotalTrucks++;
                 return Line.Dequeue();
             }
             else
