@@ -29,6 +29,10 @@ namespace Project3
         {
             Id = id;
             Line = new Queue<Truck>();
+            TotalSales = 0;
+            TotalCrates = 0;
+            TimeInUse = 0;
+            TimeNotInUse = 0;
         }
 
         /// <summary>
@@ -41,6 +45,35 @@ namespace Project3
         }
 
         /// <summary>
+        /// Attempts to unload one crate from the first truck in the queue, adding to relevant statistics depending on outcome.
+        /// </summary>
+        public void UnloadCrate()
+        {
+            //Checks to see if the line contains any trucks to unload. If not, then marks the time as unused and returns.
+            if (Line.Count() == 0)
+            {
+                TimeNotInUse++;
+                return;
+            }
+
+            //Catches a potential error in which a truck does not have any crates in it.
+            if (Line.Peek().Trailer.Count == 0)
+            {
+                this.SendOff();
+            }
+            //unloads the crate, adding its value to the dock's recorded statistic and incrementing other statistics.
+            TotalSales += Line.Peek().Trailer.Pop().GetPrice();
+            TotalCrates++;
+            TimeInUse++;
+
+            //dispatches empty trucks from the dock.
+            if (Line.Peek().Trailer.Count == 0)
+            {
+                this.SendOff();
+            }
+        }
+
+        /// <summary>
         /// Used in the simulation when the trucks leave the dock.
         /// </summary>
         /// <returns></returns>
@@ -48,6 +81,7 @@ namespace Project3
         {
             if (Line.Count > 0)
             {
+                TotalTrucks++;
                 return Line.Dequeue();
             }
             else

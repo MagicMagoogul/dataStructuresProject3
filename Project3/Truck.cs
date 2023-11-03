@@ -58,11 +58,20 @@ namespace Project3
             {
                 Driver = nameGen.Generate(Sex.Female);
             }
-
+            //second verse, same as the first; randomly assigns a delivery company
             DeliveryCompany = companyArray[rand.Next(10)];
-            Trailer = new Stack<Crate>(rand.Next(1, 26));
+
+            Trailer = new Stack<Crate>();
+            for (int i = 0; i < rand.Next(1, 26); i++)
+            {
+                Trailer.Push(new Crate());
+            }
         }
 
+        /// <summary>
+        /// ToString override for use in debugging.
+        /// </summary>
+        /// <returns>String representation of the Truck object.</returns>
         public string ToString()
         {
             return $"{this.Driver}, {this.DeliveryCompany}, {this.Trailer.Count()} crates";
