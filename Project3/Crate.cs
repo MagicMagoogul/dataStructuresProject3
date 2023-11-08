@@ -16,20 +16,41 @@ using System.Threading.Tasks;
 namespace Project3
 {
     /// <summary>
-    /// The constructor for the crates that go into the trucks
+    /// The class for the crates that go into the trucks
     /// </summary>
     public class Crate
     {
-        string Id; //The crates unique identification number
-        double Price; //The cost of the crates contents
+        string Id { get; set; } //The crates unique identification number
+        double Price { get; set; }  //The cost of the crates contents
 
+        /// <summary>
+        /// Constructor for the crate class
+        /// </summary>
         public Crate()
         {
-            //Generate a random price from 50$ to 500$
-            Random randy = new Random(); 
+           this.Id = GenerateId();
+           this.Price = GeneratePrice();
+        }
 
-            Price = randy.Next(50, 501);
-            Id = Guid.NewGuid().ToString(); // Generate a unique ID
+        /// <summary>
+        /// creates the price of the crate 50-500
+        /// </summary>
+        /// <returns>price of crate</returns>
+        public double GeneratePrice()
+        {
+            Random random = new Random();
+            double price = random.Next(50, 501);
+            return price;
+        }
+        /// <summary>
+        /// Generates a random ID for the crate C-####
+        /// </summary>
+        /// <returns>id of crate</returns>
+        public string GenerateId()
+        {
+            Random random = new Random();
+            string id = "C-" + random.Next(1000, 9999).ToString();
+            return id;
         }
     }
 }

@@ -25,16 +25,29 @@ namespace Project3
         public int TimeInUse { get; set; }
         public int TimeNotInUse { get; set; }
 
-        public Dock(string id)
+        /// <summary>
+        /// Constructor for the dock
+        /// </summary>
+        /// <param name="id">Docks unique Identification number</param>
+        public Dock()
         {
-            Id = id;
+            Id = GenerateId();
             Line = new Queue<Truck>();
         }
-
+        /// <summary>
+        /// Generates a random ID for the dock D-##
+        /// </summary>
+        /// <returns>Dock Id</returns>
+        public string GenerateId()
+        {
+            Random random = new Random();
+            string id = "D-" + random.Next(1, 16).ToString();
+            return id;
+        }
         /// <summary>
         /// Used in the simulation to join the line to unload at the dock.
         /// </summary>
-        /// <param name="truck"></param>
+        /// <param name="truck">A truck object derived from the truck class</param>
         public void JoinLine(Truck truck)
         {
             Line.Enqueue(truck);
@@ -43,7 +56,7 @@ namespace Project3
         /// <summary>
         /// Used in the simulation when the trucks leave the dock.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Truck from the queue or null</returns>
         public Truck SendOff()
         {
             if (Line.Count > 0)
@@ -55,5 +68,6 @@ namespace Project3
                 return null; // Line is empty
             }
         }
+
     }
 }

@@ -27,15 +27,52 @@ namespace Project3
         /// <summary>
         /// Constructor for the truck.
         /// </summary>
-        /// <param name="driver"></param>
-        /// <param name="deliveryCompany"></param>
-        public Truck(string driver, string deliveryCompany)
+        
+        public Truck()
         {
-            Driver = driver;
-            DeliveryCompany = deliveryCompany;
             Trailer = new Stack<Crate>();
+            this.Driver = GenerateDriverNames();
+            this.DeliveryCompany = GenerateCompanyNames();
         }
-
-
+        /// <summary>
+        /// Generates a random name for the Delivery Driver
+        /// </summary>
+        /// <returns>Name of Driver</returns>
+        public string GenerateDriverNames()
+        {
+            Random random = new Random();
+            string[] Names = {
+                "Elijah",
+                "Mason",
+                "Liam",
+                "Noah",
+                "Oliver",
+                "Aiden",
+                "Carter",
+                "Jackson",
+                "Lucas",
+                "William"
+            };
+            Driver = Names[random.Next(0, 10)];
+            return Driver;
+        }
+        /// <summary>
+        /// Generates a random name for the Delivery Company
+        /// </summary>
+        /// <returns>Delivery Company Name</returns>
+        public string GenerateCompanyNames()
+        {
+            Random random = new Random();
+            string[] CompanyNames =
+            {
+                "Amazon",
+                "FedEx",
+                "UPS",
+                "DHL",
+                "USPS",
+            };
+            DeliveryCompany = CompanyNames[random.Next(0, 6)];
+            return DeliveryCompany;
+        }
     }
 }

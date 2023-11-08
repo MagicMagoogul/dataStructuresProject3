@@ -22,13 +22,18 @@ namespace Project3
         public List<Dock> Docks { get; set; }
         public Queue<Truck> Entrance { get; }
 
+        /// <summary>
+        /// Constructor For the Warehouse
+        /// </summary>
         public Warehouse()
         {
             Docks = new List<Dock>();
             Entrance = new Queue<Truck>();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void Run()
         {
             string crateLogFilePath = "crate_log.csv"; //used to send the user to the created file
@@ -57,11 +62,11 @@ namespace Project3
         }
 
         /// <summary>
-        /// 
+        /// process the amount of time a truck is at a dock
         /// </summary>
         /// <param name="truck"></param>
         /// <param name="dock"></param>
-        /// <returns></returns>
+        /// <returns>time at dock</returns>
         public int ProcessTruckAtDock(Truck truck, Dock dock)
         {
             int dockUseTime = 0;
